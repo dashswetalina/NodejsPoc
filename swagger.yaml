@@ -59,7 +59,7 @@ definitions:
     properties:
       data:
         type: "string"
-        example: “JOHN0000MICHAEL0009994567”
+        example: JOHN0000MICHAEL0009994567
   ResponseData:
     type: "object"
     required:
