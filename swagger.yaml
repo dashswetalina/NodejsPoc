@@ -1,0 +1,128 @@
+swagger: "2.0"
+info:
+  description: "This is a sample RESTful API has been produced to allow for easy access to a standard method for documenting a RESTful API"
+  version: "0.0.1"
+  title: "RESTful API Standard Template"
+basePath: "/api"
+paths:
+  /v1/parse:       
+    post:
+      summary: "Parse Data"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Data that need to be parsed"
+          required: true
+          schema:
+            $ref: "#/definitions/RequestData"
+      responses:
+        200:
+          description: "Sucessful Response"
+          schema:
+            $ref: "#/definitions/ResponseData"
+        500:
+          description: "Invalid input" 
+          schema:
+            $ref: "#/definitions/InvalidData" 
+  /v2/parse:       
+    post:
+      summary: "Parse Data"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Data that need to be parsed"
+          required: true
+          schema:
+            $ref: "#/definitions/RequestData"
+      responses:
+        200:
+          description: "Sucessful Response"
+          schema:
+            $ref: "#/definitions/ResponseDataV2"
+        500:
+          description: "Invalid input" 
+          schema:
+            $ref: "#/definitions/InvalidData"                  
+definitions:
+  RequestData:
+    type: "object"
+    required:
+    - "data"
+    properties:
+      data:
+        type: "string"
+        example: “JOHN0000MICHAEL0009994567”
+  ResponseData:
+    type: "object"
+    required:
+    - "statusCode"
+    - "data"
+    properties:
+      statusCode:
+        type: integer
+        example: 200
+      data:
+        type: "object"
+        required:
+        - "firstName"
+        - "lastName"
+        - "clientId"
+        properties:
+          firstName: 
+            type: "string"
+            example: "JOHN0000"  
+          lastName: 
+            type: "string"
+            example: "MICHAEL000"
+          clientId: 
+            type: "string"
+            example: "9994567"
+  ResponseDataV2:
+    type: "object"
+    required:
+    - "statusCode"
+    - "data"
+    properties:
+      statusCode:
+        type: integer
+        example: 200
+      data:
+        type: "object"
+        required:
+        - "firstName"
+        - "lastName"
+        - "clientId"
+        properties:
+          firstName: 
+            type: "string"
+            example: "JOHN"  
+          lastName: 
+            type: "string"
+            example: "MICHAEL"
+          clientId: 
+            type: "string"
+            example: "999-4567"              
+  InvalidData:
+    type: "object"
+    required:
+    - "statusCode"
+    - "msg"
+    properties:
+      statusCode:
+        type: integer
+        example: 500 
+      msg:
+        type: "string"
+        example: “Internal server error”       
+    xml:
+      name: "RequestData"
+      name : "ResponseData"
+      name : "InvalidData"
