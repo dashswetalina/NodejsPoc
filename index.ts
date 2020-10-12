@@ -104,3 +104,5 @@ app.post('/api/v2/parse', (req, res) => {
 app.listen(port, () => {
     console.log(`⚡️[server]: Server is running at https://localhost:${port}`)
 })
+
+export default app;

@@ -17,6 +17,9 @@ npm install;
 # Run the app
 npm start;
 
+# Run test
+npm run test-dev
+
 # Technology Stack
 Node.js
 TypeScript
