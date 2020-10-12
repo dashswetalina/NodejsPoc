@@ -58,11 +58,11 @@ app.post('/api/v1/parse', (req, res) => {
   }
   responseObj.data.firstName=firstName+appendFirst;
   responseObj.data.lastName=lastName+appendLast;
-    res.json(responseObj);
+    res.status(200).json(responseObj);
    }else{
     errorObj.statusCode=500;
     errorObj.msg="Error while parsing data" ;
-    res.json(errorObj);
+    res.status(500).json(errorObj);
    }
    
    
@@ -89,14 +89,14 @@ app.post('/api/v2/parse', (req, res) => {
     }
   }
     
-
+  res.status(200).json(responseObj);
     
   }else{
     errorObj.statusCode=500;
     errorObj.msg="Error while parsing data" ;
-    res.json(errorObj);
+    res.status(500).json(errorObj);
    }
-  res.json(responseObj);
+  
 })
 
 
